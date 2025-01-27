@@ -12,7 +12,8 @@ class Document extends Model
         'name',
         'file',
         'slug',
-        'descrption'
+        'descrption',
+        'internal_doc_id'
     ];
 
     public function internalDocCategory()

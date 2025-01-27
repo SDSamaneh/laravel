@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
 use Illuminate\Database\Seeder;
+use App\Models\Category;
 
 class CategorySeeder extends Seeder
 {
@@ -21,6 +21,10 @@ class CategorySeeder extends Seeder
             ],
             'طنز' => [
                 'slug' => 'fun',
+                'icon' => 'fa fa-futbol-o'
+            ],
+            'تاریخی' => [
+                'slug' => 'history',
                 'icon' => 'fa fa-futbol-o'
             ]
         ];

@@ -18,7 +18,8 @@ class Video extends Model
             'length',
             'thumbnail',
             'slug',
-            'descrption'
+            'descrption',
+            'category_id'
       ];
 
       public function getRouteKeyName()
@@ -35,12 +36,16 @@ class Video extends Model
       {
             return (new Verta($value))->formatDifference();
       }
-      public function relatedVideos(int $count = 3)
+      public function relatedVideos(int $count = 6)
       {
-            return Video::all()->random($count);
+            return $this->category->getRandomVideos($count);
       }
       public function category()
       {
             return $this->belongsTo(Category::class);
+      }
+      public function getCategoryNameAttribute()
+      {
+            return $this->category?->name;
       }
 }

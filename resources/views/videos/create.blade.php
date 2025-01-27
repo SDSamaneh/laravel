@@ -5,8 +5,7 @@
       <div id="upload">
             <div class="row">
                   <x-validation-errors></x-validation-errors>
-                  <!-- upload -->
-                  <div class="col-md-8">
+                  <div class="col-md-9">
                         <h1 class="page-title"><span>آپلود</span> فیلم</h1>
                         <form action="{{route('videos.store')}}" method="POST">
                               @csrf
@@ -31,6 +30,14 @@
                                           <label>تصویر</label>
                                           <input name="thumbnail" type="text" value="{{old('thumbnail')}}" class="form-control">
                                     </div>
+                                    <div class="col-md-6">
+                                          <label>دسته بندی</label>
+                                          <select name="category_id" id="category" class="form-control">
+                                                @foreach($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @endforeach
+                                          </select>
+                                    </div>
                                     <div class="col-md-12">
                                           <label>توضیحات</label>
                                           <textarea name="descrption" class="form-control" value="{{old('descrption')}}" rows="4" placeholder="توضیح"></textarea>
@@ -41,14 +48,8 @@
                                     </div>
                               </div>
                         </form>
-                  </div><!-- // col-md-8 -->
-
-                  <div class="col-md-4">
-                        <a href="#"><img src="{{asset('img/upload-adv.png')}}" alt=""></a>
-                  </div><!-- // col-md-8 -->
-                  <!-- // upload -->
+                  </div>
             </div><!-- // row -->
       </div><!-- // upload -->
 </div>
-
 @endsection

@@ -31,6 +31,14 @@
                                           <label>تصویر</label>
                                           <input name="thumbnail" type="text" value="{{$video->thumbnail}}" class="form-control">
                                     </div>
+                                    <div class="col-md-6">
+                                          <label>دسته بندی</label>
+                                          <select name="category_id" id="category" class="form-control">
+                                                @foreach($categories as $category)
+                                                <option value="{{$category->id}}" {{$category->id==$video->category_id ? 'selected' : ''}}>{{$category->name}}</option>
+                                                @endforeach
+                                          </select>
+                                    </div>
                                     <div class="col-md-12">
                                           <label>توضیحات</label>
                                           <textarea name="descrption" class="form-control" value="{{$video->descrption}}" rows="4" placeholder="توضیح"></textarea>
