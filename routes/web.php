@@ -1,12 +1,12 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryVideoController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\VideoController;
 use App\Models\Video;
 use Carbon\Factory;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,24 +19,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/factory', function () {
-//     Video::factory()->create();
-// });
-
-// Route::get('/', 'App\Http\Controllers\UserController@index');
-// or
-
-// Route::get('/', function () {
-//     // dd('Route');
-//     return view('index');
-// });
-// Route::get('/panel', function () {
-//     echo "hello panel ";
-// });
-
-// Route::get('/videos', [VideoController::class, 'index']);
-//or
-// Route::get('/videos', 'VideoController@index');
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
@@ -50,3 +32,11 @@ Route::get('/categories/{category}/videos', [CategoryVideoController::class, 'in
 
 Route::get('/documents/create', [DocumentController::class, 'create'])->name('documents.create');
 Route::post('documents', [DocumentController::class, 'store'])->name('documents.store');
+
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__ . '/auth.php';
