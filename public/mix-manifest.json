@@ -1,9 +1,12 @@
 {
     "/js/main.js": "/js/main.js",
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
     "/css/main.css": "/css/main.css",
     "/css/fonts/IRANSansWeb.woff2": "/css/fonts/IRANSansWeb.woff2",
     "/css/fonts/IRANSansWeb_Bold.woff2": "/css/fonts/IRANSansWeb_Bold.woff2",
     "/css/fonts/IRANSansWeb_Light.woff2": "/css/fonts/IRANSansWeb_Light.woff2",
+    "/img/avatarimage.png": "/img/avatarimage.png",
     "/img/demo_img/adv.jpg": "/img/demo_img/adv.jpg",
     "/img/demo_img/blog-1.png": "/img/demo_img/blog-1.png",
     "/img/demo_img/blog-2.png": "/img/demo_img/blog-2.png",
