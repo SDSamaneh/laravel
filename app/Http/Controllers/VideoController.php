@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateVideoRequest;
 use App\Models\Category;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VideoController extends Controller
 {
@@ -22,7 +23,7 @@ class VideoController extends Controller
     }
     public function store(StoreVideoRequest $request)
     {
-        Video::create($request->all());
+        $request->user()->videos()->create($request->all());
         return redirect()->route('index')->with('alert', __('messages.success'));
     }
     public function show(Request $request, Video $video)
