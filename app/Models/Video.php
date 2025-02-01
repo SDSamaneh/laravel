@@ -7,6 +7,7 @@ use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Video extends Model
 {
@@ -55,5 +56,10 @@ class Video extends Model
       public function getOwnerNameAttribute()
       {
             return $this->user?->name;
+      }
+
+      public function getVideoUrlAttribute()
+      {
+            return '/storage/' . $this->url;
       }
 }

@@ -5,8 +5,13 @@ use App\Http\Controllers\CategoryVideoController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\VideoController;
+use App\Jobs\ProcessVideo;
+use App\Mail\VerifyEmail;
+use App\Models\User;
 use App\Models\Video;
 use Carbon\Factory;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +37,7 @@ Route::get('/categories/{category}/videos', [CategoryVideoController::class, 'in
 
 Route::get('/documents/create', [DocumentController::class, 'create'])->name('documents.create');
 Route::post('documents', [DocumentController::class, 'store'])->name('documents.store');
-
+Route::post('/upload-pdf', [DocumentController::class, 'upload'])->name('documents.update');
 
 
 Route::get('/dashboard', function () {
@@ -40,3 +45,4 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+

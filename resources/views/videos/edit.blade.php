@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="col-md-6">
                                           <label>آدرس ویدیو</label>
-                                          <input name="url" type="text" class="form-control" value="{{$video->url}}" placeholder="آدرس ویدیو">
+                                          <input type="file" name="file" class="form-control" value="{{$video->url}}">
                                     </div>
                                     <div class="col-md-6">
                                           <label>تصویر</label>

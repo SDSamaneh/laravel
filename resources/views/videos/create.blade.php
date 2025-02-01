@@ -7,7 +7,7 @@
                   <x-validation-errors></x-validation-errors>
                   <div class="col-md-9">
                         <h1 class="page-title"><span>آپلود</span> فیلم</h1>
-                        <form action="{{route('videos.store')}}" method="POST">
+                        <form action="{{route('videos.store')}}" method="POST" enctype="multipart/form-data">
                               @csrf
                               <div class="row">
                                     <div class="col-md-6">
@@ -24,7 +24,7 @@
                                     </div>
                                     <div class="col-md-6">
                                           <label>آدرس ویدیو</label>
-                                          <input name="url" type="text" class="form-control" value="{{old('url')}}" placeholder="آدرس ویدیو">
+                                          <input type="file" name="file" class="form-control">
                                     </div>
                                     <div class="col-md-6">
                                           <label>تصویر</label>

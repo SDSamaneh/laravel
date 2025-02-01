@@ -15,18 +15,28 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            'ورزشی' => [
-                'slug' => 'sport',
+            'فرم ها' => [
+                'slug' => 'forms',
                 'icon' => 'fa fa-futbol-o'
             ],
-            'طنز' => [
-                'slug' => 'fun',
+            'روش های اجرایی' => [
+                'slug' => 'methods',
                 'icon' => 'fa fa-futbol-o'
             ],
-            'تاریخی' => [
-                'slug' => 'history',
+            'دستورالعمل' => [
+                'slug' => 'structions',
+                'icon' => 'fa fa-futbol-o'
+            ],
+            'فلوچارت' => [
+                'slug' => 'flowchart',
+                'icon' => 'fa fa-futbol-o'
+            ],
+            'سایر' => [
+                'slug' => 'others',
                 'icon' => 'fa fa-futbol-o'
             ]
+
+
         ];
         foreach ($categories as $categoryName => $details) {
             Category::create([

@@ -2,15 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\CheckVerifyEmail;
 use App\Http\Requests\StoreVideoRequest;
 use App\Http\Requests\UpdateVideoRequest;
 use App\Models\Category;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
+
+    public function __construct()
+    {
+        // $this->middleware(CheckVerifyEmail::class, ['only' => ['create']]);
+    }
+
     public function index()
     {
         $videos = Video::all();
@@ -23,6 +31,10 @@ class VideoController extends Controller
     }
     public function store(StoreVideoRequest $request)
     {
+        $path = Storage::putFile('', $request->file);
+        $request->merge([
+            'url' => $path
+        ]);
         $request->user()->videos()->create($request->all());
         return redirect()->route('index')->with('alert', __('messages.success'));
     }
