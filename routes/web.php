@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Video;
 use Carbon\Factory;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
 /*
@@ -40,9 +41,16 @@ Route::post('documents', [DocumentController::class, 'store'])->name('documents.
 Route::post('/upload-pdf', [DocumentController::class, 'upload'])->name('documents.update');
 
 
+// Route::get('duration', function () {
+//     $ffprobe = FFMpeg\FFProbe::create();
+//     $duration = $ffprobe
+//         ->format(Storage::path('videos/lNjwGQedXPgEwEaCO9WFvhCFgf8PRxIsO3Bby1rA.mp4'))
+//         ->get('duration');
+//     dd($duration);
+// });
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
-

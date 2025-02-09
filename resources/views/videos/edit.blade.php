@@ -8,7 +8,7 @@
                   <!-- upload -->
                   <div class="col-md-8">
                         <h1 class="page-title"><span>آپلود</span> فیلم</h1>
-                        <form action="{{route('video.update',$video->slug)}}" method="POST">
+                        <form action="{{route('video.update',$video->slug)}}" method="POST" enctype="multipart/form-data">
                               @csrf
                               <div class="row">
                                     <div class="col-md-6">
@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="col-md-6">
                                           <label>آدرس ویدیو</label>
-                                          <input type="file" name="file" class="form-control" value="{{$video->url}}">
+                                          <input type="file" name="file" class="form-control">
                                     </div>
                                     <div class="col-md-6">
                                           <label>تصویر</label>
